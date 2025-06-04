@@ -10,7 +10,7 @@
 - Click **Run** (▶️) to build and launch the app.
 
 ### 2. API Key Configuration
-- The app requires an API key (e.g., for TMDb or IMDb API):
+- The app requires an API key:
   1. Create a file named `local.properties` in the project root (if not present).
   2. Add your API key:
      ```
@@ -19,7 +19,7 @@
   3. The app will read this key at build/runtime.
 
 ### 3. Entry Point
-- The main entry point is `MainActivity` located in `app/src/main/java/.../MainActivity.kt`
+- The main entry point is `MainActivity` located in `app/src/main/java/com/balv/imdb/ui/MainActivity.kt`
 
 ---
 
@@ -36,5 +36,13 @@
   * Genre list: GENRE_POLL_THRESHOLD = 1 minute
 - Pull to refresh is implemented for the main movie list screen, allowing users to manually refresh data.
 
-## Time spent: probably around 4 days
-## Bonus Features: Popular movies, Cast..
+## Time spent:
+- Around 4 days
+## Bonus Features:
+- Popular movies
+- Cast..
+## 📸 Screenshot
+
+![Home Screen](docs/home.jpg)
+
+![Detail Screen](docs/detail.jpg)
