@@ -14,10 +14,8 @@ class GetMovieDetailUseCase @Inject constructor(
 
     override suspend fun execute(input: Int): Flow<MovieDetail?> {
         val resultFlow = movieRepository.getMovieDetailLocalFlow(input).onEach { local ->
-            Log.i("TAG", "execute: oneachhhhh $local")
             if (local == null || System.currentTimeMillis() - local.refreshedDate > DETAIL_POLL_THRESHOLD) {
                 val network = movieRepository.getDetailFromNetwork(input)
-                Log.i("TAG", "execute: exec result $network")
                 if (network.isSuccess) {
                     movieRepository.updateMovieDetail(network.data!!)
                 }

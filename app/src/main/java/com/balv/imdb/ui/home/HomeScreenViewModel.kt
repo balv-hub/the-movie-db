@@ -44,7 +44,6 @@ class HomeScreenViewModel @Inject constructor(
                     started = SharingStarted.WhileSubscribed(5000L),
                     initialValue = PagingData.empty()
                 ).collectLatest {
-                Log.i("TAG", "movie home updated..... $it")
                     _allMoviesFlow.emit(it)
                 }
         }

@@ -64,6 +64,7 @@ import com.balv.imdb.ui.home.listview.tmdbRootPosterPath
 import com.balv.imdb.ui.icons.ErrorOutlined
 import com.balv.imdb.ui.icons.LoadingIndicator
 import com.balv.imdb.ui.icons.SentimentVeryDissatisfied
+import java.util.Locale
 
 const val tmdbRootBackDropPath = "https://image.tmdb.org/t/p/w500"
 
@@ -435,12 +436,15 @@ fun DetailsSection(details: MovieDetail) {
         formatUsdShort(details.revenue)
     }
 
+    val language = remember(details.originalLanguage) {
+        Locale(details.originalLanguage).getDisplayLanguage(Locale.getDefault()).replaceFirstChar { it.uppercase() }
+    }
     Column(modifier = Modifier.padding(16.dp)) {
         Text("Details", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color.LightGray)
         Spacer(modifier = Modifier.height(8.dp))
         DetailItem("Original Title:", details.originalTitle)
         DetailItem("Status:", details.status)
-        DetailItem("Original Language:", details.originalLanguage)
+        DetailItem("Original Language:", language)
         DetailItem("Budget:", budget)
         DetailItem("Revenue:", revenue)
     }

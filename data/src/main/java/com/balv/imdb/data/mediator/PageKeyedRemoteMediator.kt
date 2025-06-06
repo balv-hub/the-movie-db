@@ -34,7 +34,6 @@ class PageKeyedRemoteMediator @Inject constructor(
         loadType: LoadType,
         state: PagingState<Int, MovieEntity>
     ): MediatorResult {
-        Log.d(TAG, "load() called. LoadType: $loadType, ConfigPageSize: ${state.config.pageSize}, ConfigInitialLoad: ${state.config.initialLoadSize}")
 
         return try {
             when (loadType) {
@@ -48,7 +47,7 @@ class PageKeyedRemoteMediator @Inject constructor(
                     var lastApiResponseTotalPages: Int = 0
 
                     Log.d(TAG, "REFRESH: Clearing database prior to fetching.")
-                    
+
                     appDb.withTransaction {
                         
                         appDb.movieDao().clearAll()

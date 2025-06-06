@@ -39,7 +39,6 @@ class MovieDetailViewModel @Inject constructor(
     private val movieId: Int? = savedStateHandle.get<Int>("movieId")
 
     init {
-        Log.i(TAG, "movieId:  $movieId")
         movieId?.let {
             if (it != 0 && it != -1) {
                 viewModelScope.launch(Dispatchers.IO) {

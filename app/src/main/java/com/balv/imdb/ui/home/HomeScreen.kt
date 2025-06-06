@@ -103,8 +103,6 @@ fun HomeScreen(
 
     val refreshing = pagingItems.loadState.refresh is LoadState.Loading
 
-    Log.i("TAG", "HomeScreen: $refreshing ")
-
     PullToRefreshBox(
         isRefreshing = refreshing,
         onRefresh = {

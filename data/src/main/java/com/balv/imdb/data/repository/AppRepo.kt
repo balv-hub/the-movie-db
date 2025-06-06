@@ -60,7 +60,6 @@ class AppRepo @Inject constructor(
     override suspend fun getNextRemoteDataPage(page: Int): ApiResult<SearchData> {
         return getRemoteResponse {
             apiService.discoverMovies(page = page).let { result: SearchData ->
-                Log.i(TAG, "getRemoteData: listSize=" + result.results.size)
                 result.results.map { remote ->
                     remote.remoteMovieToEntity()
                 }.also {
@@ -112,7 +111,6 @@ class AppRepo @Inject constructor(
 
     override fun getPopularMovies(): Flow<List<Movie>> {
         return appDb.movieDao().getTop20PopularMovies().map {
-            Log.i(TAG, "getPopularMovies: $it")
             it.map { movieEntity -> movieEntity.entityToDomain() }
         }
     }
